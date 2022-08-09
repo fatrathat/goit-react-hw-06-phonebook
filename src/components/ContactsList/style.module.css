@@ -1,0 +1,9 @@
+.FilterItem {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.FilterItem:not(:last-child) {
+  margin-bottom: 10px;
+}

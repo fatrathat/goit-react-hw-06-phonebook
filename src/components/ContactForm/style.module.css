@@ -1,0 +1,14 @@
+.ContactForm {
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.ContactForm__controls {
+  width: 200px;
+}
+
+.ContactForm__input {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+}
