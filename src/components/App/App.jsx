@@ -1,8 +1,8 @@
 import styles from './style.module.css';
 
-import ContactForm from './ContactForm/ContactForm';
-import ContactsList from './ContactsList/ContactsList';
-import Filter from './Filter/Filter';
+import ContactForm from '../ContactForm/ContactForm';
+import ContactsList from '../ContactsList/ContactsList';
+import Filter from '../Filter/Filter';
 import { useState, useEffect } from 'react';
 
 const INITIAL_STATE = {
