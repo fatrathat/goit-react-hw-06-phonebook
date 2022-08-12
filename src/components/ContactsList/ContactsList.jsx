@@ -1,11 +1,12 @@
 import styles from './style.module.css';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from '../../store/store.js';
+import { deleteContact } from '../../store/store';
+import { allContacts } from '../../store/store';
 
 const ContactsList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.items);
+  const contacts = useSelector(allContacts);
 
   const deleteButtonHandler = id => {
     dispatch(deleteContact(id));

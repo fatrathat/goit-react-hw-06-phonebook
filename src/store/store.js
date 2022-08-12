@@ -33,6 +33,7 @@ const store = configureStore({
   },
 });
 
-export const allContacts = state => state;
+//selectors
+export const allContacts = state => state.contacts.items;
 
 export default store;
