@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../store/store.js';
+import { addContact } from '../../store/actions/contacts-actions';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
