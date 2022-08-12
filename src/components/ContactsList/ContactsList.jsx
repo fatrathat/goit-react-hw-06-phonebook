@@ -2,11 +2,13 @@ import styles from './style.module.css';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from '../../store/actions/contacts-actions';
-import { allContacts } from '../../store/selectors/contacts-selectors';
+import { selectAllContacts } from '../../store/selectors/contacts-selectors';
+// import { selectFilterContacts } from '../../store/selectors/filters-selectors';
 
 const ContactsList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(allContacts);
+  // const filter = useSelector(selectFilterContacts);
+  const contacts = useSelector(selectAllContacts);
 
   const deleteButtonHandler = id => {
     dispatch(deleteContact(id));

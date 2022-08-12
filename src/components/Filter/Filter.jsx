@@ -1,11 +1,15 @@
 import styles from './style.module.css';
-// import PropTypes from 'prop-types';
 
-const Filter = props => {
+import { useDispatch } from 'react-redux';
+import { setFilter } from '../../store/actions/filters-actions';
+
+const Filter = () => {
+  const dispatch = useDispatch();
+
   const changeHandler = e => {
     const { value } = e.target;
 
-    props.onFilterContacts(value);
+    dispatch(setFilter(value));
   };
 
   return (
@@ -20,10 +24,5 @@ const Filter = props => {
     </label>
   );
 };
-
-// Filter.propTypes = {
-//   contacts: PropTypes.string.isRequired,
-//   onFilterContacts: PropTypes.func.isRequired,
-// };
 
 export default Filter;
