@@ -1,7 +1,6 @@
 import styles from './style.module.css';
 
 import { nanoid } from 'nanoid';
-import PropTypes from 'prop-types';
 
 import { useDispatch } from 'react-redux';
 import { addContact } from '../../store/actions/contacts-actions';
@@ -54,16 +53,6 @@ const ContactForm = () => {
       </form>
     </div>
   );
-};
-
-ContactForm.propTypes = {
-  states: PropTypes.shape({
-    contacts: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-      })
-    ),
-  }),
 };
 
 export default ContactForm;

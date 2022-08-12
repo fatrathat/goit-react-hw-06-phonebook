@@ -1,14 +1,13 @@
 import styles from './style.module.css';
-import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from '../../store/actions/contacts-actions';
-import { selectAllContacts } from '../../store/selectors/contacts-selectors';
-// import { selectFilterContacts } from '../../store/selectors/filters-selectors';
+import { selectVisibleContacts } from '../../store/selectors/contacts-selectors';
+import { selectFilterContacts } from '../../store/selectors/filters-selectors';
 
 const ContactsList = () => {
   const dispatch = useDispatch();
-  // const filter = useSelector(selectFilterContacts);
-  const contacts = useSelector(selectAllContacts);
+  const filter = useSelector(selectFilterContacts);
+  const contacts = useSelector(state => selectVisibleContacts(state, filter));
 
   const deleteButtonHandler = id => {
     dispatch(deleteContact(id));
@@ -31,14 +30,6 @@ const ContactsList = () => {
       })}
     </ul>
   );
-};
-
-ContactsList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    })
-  ),
 };
 
 export default ContactsList;
