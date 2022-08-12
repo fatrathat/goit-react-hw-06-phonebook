@@ -1,5 +1,5 @@
 import styles from './style.module.css';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const Filter = props => {
   const changeHandler = e => {
@@ -21,9 +21,9 @@ const Filter = props => {
   );
 };
 
-Filter.propTypes = {
-  contacts: PropTypes.string.isRequired,
-  onFilterContacts: PropTypes.func.isRequired,
-};
+// Filter.propTypes = {
+//   contacts: PropTypes.string.isRequired,
+//   onFilterContacts: PropTypes.func.isRequired,
+// };
 
 export default Filter;
