@@ -2,30 +2,22 @@ import styles from './style.module.css';
 
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 
-const state = {
-  name: '',
-  number: '',
-};
+import { useDispatch } from 'react-redux';
+import { addContact } from '../../store/store.js';
 
-const ContactForm = props => {
-  const [states, setStates] = useState(state);
-
-  const changeHandler = e => {
-    const { name, value } = e.target;
-
-    setStates(prev => {
-      return {
-        ...prev,
-        [name]: value,
-      };
-    });
-  };
+const ContactForm = () => {
+  const dispatch = useDispatch();
 
   const submitHandler = e => {
     e.preventDefault();
-    props.onAddContacts({ ...states, id: nanoid() });
+    dispatch(
+      addContact({
+        name: e.target.name.value,
+        number: e.target.number.value,
+        id: nanoid(),
+      })
+    );
     e.target.reset();
   };
 
@@ -37,7 +29,6 @@ const ContactForm = props => {
             Name
             <input
               className={styles.ContactForm__input}
-              onChange={changeHandler}
               type="text"
               name="name"
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -50,7 +41,6 @@ const ContactForm = props => {
               Number
               <input
                 className={styles.ContactForm__input}
-                onChange={changeHandler}
                 type="tel"
                 name="number"
                 pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
